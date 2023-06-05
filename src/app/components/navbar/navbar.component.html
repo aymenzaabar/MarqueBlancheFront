@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom"
+  class="navbar navbar-top navbar-expand border-bottom bg-secondary navbar-light"
   id="navbar-main"
 >
   <div class="container-fluid">
@@ -15,7 +15,7 @@
       </ul>
       <ul class="navbar-nav align-items-center ml-md-auto">
         <li class="nav-item d-sm-none">
-          <a class="nav-link" (click)="openSearch()">
+          <a class="nav-link">
             <i class="ni ni-zoom-split-in"></i>
           </a>
         </li>
@@ -202,7 +202,7 @@
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-red"
                 >
-                  <i class="ni ni-calendar-grid-58"></i>
+                  <i class="ni ni-calendar-grid-58" [routerLink]="['/calendar']"></i>
                 </span>
                 <small>Calendar</small>
               </a>

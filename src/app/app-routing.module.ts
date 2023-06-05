@@ -5,8 +5,6 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
-import { PresentationComponent } from "./pages/presentation/presentation.component";
-import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
   {
@@ -14,63 +12,37 @@ const routes: Routes = [
     redirectTo: "presentation",
     pathMatch: "full"
   },
-  {
-    path: "presentation",
-    component: PresentationComponent
-  },
+  /*{
+    path: "login",
+    component: LoginComponent
+  },*/
+  
   {
     path: "",
     component: AdminLayoutComponent,
     children: [
       {
-        path: "home",
-        component: HomeComponent
-      },
+        path: "facturation",
+        loadChildren: () =>  import('./Modules/processFacturation/processFacturation.module').then(m => m.ProcessFacturationModule)
+            },
       {
-        path: "components",
-        loadChildren: "./pages/components/components.module#ComponentsModule"
-      },
-      {
-        path: "forms",
-        loadChildren: "./pages/forms/forms.module#FormsModules"
-      },
-      {
-        path: "tables",
-        loadChildren: "./pages/tables/tables.module#TablesModule"
-      },
-      {
-        path: "maps",
-        loadChildren: "./pages/maps/maps.module#MapsModule"
-      },
-      {
-        path: "widgets",
-        loadChildren: "./pages/widgets/widgets.module#WidgetsModule"
-      },
-      {
-        path: "charts",
-        loadChildren: "./pages/charts/charts.module#ChartsModule"
-      },
-      {
-        path: "calendar",
-        loadChildren: "./pages/calendar/calendar.module#CalendarModule"
-      },
-      {
-        path: "examples",
-        loadChildren: "./pages/examples/examples.module#ExamplesModule"
-      }
+         path: "suspension",
+        loadChildren: () =>  import('./Modules/processSuspension/processSuspension.module').then(m => m.ProcessSuspensionModule)
+            },
+     
     ]
   },
   {
-    path: "",
+    path: '',
     component: AuthLayoutComponent,
     children: [
       {
-        path: "examples",
-        loadChildren:
-          "./layouts/auth-layout/auth-layout.module#AuthLayoutModule"
+        path: '',
+        loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
       }
     ]
   },
+  
   {
     path: "**",
     redirectTo: "home"

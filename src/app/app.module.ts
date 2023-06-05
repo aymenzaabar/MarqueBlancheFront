@@ -10,13 +10,13 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
-import { PresentationModule } from "./pages/presentation/presentation.module";
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from "./components/components.module";
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
+
 
 @NgModule({
   declarations: [
@@ -35,7 +35,6 @@ import { AppRoutingModule } from './app-routing.module';
     ToastrModule.forRoot(),
     CollapseModule.forRoot(),
     TagInputModule,
-    PresentationModule,
     BrowserModule,
     AppRoutingModule
   ],
