@@ -29,7 +29,34 @@ const routes: Routes = [
          path: "suspension",
         loadChildren: () =>  import('./Modules/processSuspension/processSuspension.module').then(m => m.ProcessSuspensionModule)
             },
-     
+      {
+         path: "reactivation",
+        loadChildren: () =>  import('./Modules/processReactivation/processReactivation.module').then(m => m.ProcessReactivationModule)
+            },
+      {
+         path: "credentialssip",
+        loadChildren: () =>  import('./Modules/credentialssip/credentialssip.module').then(m => m.CredentialssipModule)
+            },
+      {
+         path: "ajoutpnom",
+        loadChildren: () =>  import('./Modules/processAjoutPNom/processAjoutPNom.module').then(m => m.ProcessAjoutPNomModule)
+            },  
+      {
+         path: "supressionpnom",
+        loadChildren: () =>  import('./Modules/processSupprPNom/processSupprPNom.module').then(m => m.ProcessSupprPNomModule)
+            },
+      {
+         path: "creationinternet",
+        loadChildren: () =>  import('./Modules/processCreationInternet/processCreationInternet.module').then(m => m.ProcessCreationInternetModule)
+            },       
+      {
+         path: "resilationinternet",
+        loadChildren: () =>  import('./Modules/processResilationNet/processResilationNet.module').then(m => m.ProcessResilationNetModule)
+            },   
+      {
+         path: "echange",
+        loadChildren: () =>  import('./Modules/processEchange/processEchange.module').then(m => m.ProcessEchangeModule)
+            },
     ]
   },
   {

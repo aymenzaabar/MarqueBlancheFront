@@ -48,7 +48,7 @@ export const ROUTES: RouteInfo[] = [
 
   },
   {
-    path: "/components",
+    path: "/reactivation",
     title: "Réactivation",
     type: "link",
     icontype: "ni-ui-04 text-info",
@@ -56,7 +56,7 @@ export const ROUTES: RouteInfo[] = [
     isCollapsed: true,
   },
   {
-    path: "/forms",
+    path: "/credentialssip",
     title: "Credentials SIP",
     type: "link",
     icontype: "ni-single-copy-04 text-pink",
@@ -64,7 +64,7 @@ export const ROUTES: RouteInfo[] = [
     isCollapsed: true,
   },
   {
-    path: "/tables",
+    path: "/ajoutpnom",
     title: "Ajout P-nom",
     type: "link",
     icontype: "ni-align-left-2 text-default",
@@ -73,7 +73,7 @@ export const ROUTES: RouteInfo[] = [
 
   },
   {
-    path: "/maps",
+    path: "/supressionpnom",
     title: "Supression P-nom",
     type: "link",
     icontype: "ni-map-big text-primary",
@@ -82,19 +82,19 @@ export const ROUTES: RouteInfo[] = [
 
   },
   {
-    path: "/widgets",
+    path: "/creationinternet",
     title: "Création Internet",
     type: "link",
     icontype: "ni-archive-2 text-green"
   },
   {
-    path: "/charts",
+    path: "/resilationinternet",
     title: "Résilation Internet",
     type: "link",
     icontype: "ni-chart-pie-35 text-info"
   },
   {
-    path: "/calendar",
+    path: "/echange",
     title: "Echange",
     type: "link",
     icontype: "ni-calendar-grid-58 text-red"
