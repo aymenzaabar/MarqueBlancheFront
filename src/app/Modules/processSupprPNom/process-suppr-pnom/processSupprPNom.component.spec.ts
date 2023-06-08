@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProcessSupprPNomComponent } from './process-suppr-pnom.component';
+import { ProcessSupprPNomComponent } from './processSupprPNom.component';
 
 describe('ProcessSupprPNomComponent', () => {
   let component: ProcessSupprPNomComponent;

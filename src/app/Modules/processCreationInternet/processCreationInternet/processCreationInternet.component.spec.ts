@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProcessCreationInternetComponent } from './process-creation-internet.component';
+import { ProcessCreationInternetComponent } from './processCreationInternet.component';
 
 describe('ProcessCreationInternetComponent', () => {
   let component: ProcessCreationInternetComponent;

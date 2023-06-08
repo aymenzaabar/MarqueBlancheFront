@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProcessAjouPNomComponent } from './process-ajou-pnom.component';
+import { ProcessAjouPNomComponent } from './processAjoutPNom.component';
 
 describe('ProcessAjouPNomComponent', () => {
   let component: ProcessAjouPNomComponent;

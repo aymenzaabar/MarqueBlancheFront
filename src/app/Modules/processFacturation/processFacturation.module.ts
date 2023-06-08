@@ -8,7 +8,8 @@ import { ProcessFacturationRoutingModule } from './processFacturation-routing.mo
   declarations: [],
   imports: [
     CommonModule,
-    ProcessFacturationRoutingModule
+    ProcessFacturationRoutingModule,
+    
   ]
 })
 export class ProcessFacturationModule { }

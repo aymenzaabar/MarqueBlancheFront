@@ -4,7 +4,6 @@ import { ProcessSupprPNomComponent } from './process-suppr-pnom/processSupprPNom
 
 const routes: Routes = [
   {
-
     path: "",
     component: ProcessSupprPNomComponent
   },

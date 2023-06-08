@@ -145,6 +145,7 @@
             "exclude": [
               "**/node_modules/**"
             ]
+            
           }
         }
       }

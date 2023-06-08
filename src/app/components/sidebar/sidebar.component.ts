@@ -35,14 +35,14 @@ export const ROUTES: RouteInfo[] = [
     path: "/facturation",
     title: "Facturation",
     type: "link",
-    icontype: "ni-shop text-primary",
+    icontype: "ni-money-coins text-primary",
     isCollapsed: true,
   },
   {
     path: "/suspension",
     title: "Suspension",
     type: "link",
-    icontype: "ni-ungroup text-orange",
+    icontype: "ni-button-pause text-orange",
     collapse: "examples",
     isCollapsed: true,
 
@@ -51,7 +51,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/reactivation",
     title: "Réactivation",
     type: "link",
-    icontype: "ni-ui-04 text-info",
+    icontype: "ni-button-power text-info",
     collapse: "components",
     isCollapsed: true,
   },
@@ -59,7 +59,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/credentialssip",
     title: "Credentials SIP",
     type: "link",
-    icontype: "ni-single-copy-04 text-pink",
+    icontype: "ni-key-25 text-pink",
     collapse: "forms",
     isCollapsed: true,
   },
@@ -67,7 +67,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/ajoutpnom",
     title: "Ajout P-nom",
     type: "link",
-    icontype: "ni-align-left-2 text-default",
+    icontype: "ni-badge text-default",
     collapse: "tables",
     isCollapsed: true,
 
@@ -76,7 +76,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/supressionpnom",
     title: "Supression P-nom",
     type: "link",
-    icontype: "ni-map-big text-primary",
+    icontype: "ni-basket text-primary",
     collapse: "maps",
     isCollapsed: true,
 
@@ -85,19 +85,19 @@ export const ROUTES: RouteInfo[] = [
     path: "/creationinternet",
     title: "Création Internet",
     type: "link",
-    icontype: "ni-archive-2 text-green"
+    icontype: "ni-planet text-green"
   },
   {
     path: "/resilationinternet",
     title: "Résilation Internet",
     type: "link",
-    icontype: "ni-chart-pie-35 text-info"
+    icontype: "ni-paper-diploma text-info"
   },
   {
     path: "/echange",
     title: "Echange",
     type: "link",
-    icontype: "ni-calendar-grid-58 text-red"
+    icontype: "ni-curved-next text-red"
   }
 ];
 
