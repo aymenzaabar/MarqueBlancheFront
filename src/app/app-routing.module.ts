@@ -5,6 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
+import { StepperfacComponent } from "./components/stepperfac/stepperfac.component";
 
 const routes: Routes = [
   {
@@ -57,6 +58,19 @@ const routes: Routes = [
          path: "echange",
         loadChildren: () =>  import('./Modules/processEchange/processEchange.module').then(m => m.ProcessEchangeModule)
             },
+      {
+         path: "tracing",
+        loadChildren: () =>  import('./Modules/tracing/tracing.module').then(m => m.TracingModule)
+            },
+      {
+         path: "traceviewer",
+        loadChildren: () =>  import('./Modules/traceviewer/traceviewer.module').then(m => m.TraceviewerModule)
+            },
+      {
+         path: "dependencies",
+        loadChildren: () =>  import('./Modules/dependencies/dependencies.module').then(m => m.DependenciesModule)
+            }
+           
     ]
   },
   {
@@ -70,6 +84,8 @@ const routes: Routes = [
     ]
   },
   
+  { path: 'step', component: StepperfacComponent },
+
   {
     path: "**",
     redirectTo: "home"

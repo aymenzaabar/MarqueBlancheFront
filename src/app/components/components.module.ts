@@ -17,6 +17,7 @@ import { DxVectorMapModule, DxPieChartModule } from 'devextreme-angular';
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { StepperfacComponent } from './stepperfac/stepperfac.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { RegisterComponent } from './register/register.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    StepperfacComponent,
     
   ],
   exports: [

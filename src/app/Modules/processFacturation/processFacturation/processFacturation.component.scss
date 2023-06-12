@@ -1,0 +1,67 @@
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+  }
+  
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  
+  .content {
+    font-size: 14px;
+  }
+  
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .step.active .circle {
+    background-color: #f00;
+    color: #fff;
+  }
+  
+  #step-content {
+    margin-top: 20px;
+  }
+  
+  .step-content {
+    display: none;
+  }
+  
+  .step-content.active {
+    display: block;
+  }
+  
+  .next-button,
+  .back-button,
+  .submit-button {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .step1-content.active + .next-button,
+  .step2-content.active + .next-button,
+  .step2-content.active + .back-button,
+  .step3-content.active + .back-button {
+    display: block;
+  }
+  
+  .step3-content.active + .submit-button {
+    display: block;
+  }
+  

@@ -198,29 +198,29 @@
             *dropdownMenu
           >
             <div class="row shortcuts px-4">
-              <a href="javascript:void()" class="col-4 shortcut-item">
+              <a [routerLink]="['/tracing']" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-red"
                 >
-                  <i class="ni ni-calendar-grid-58" [routerLink]="['/calendar']"></i>
+                  <i class="ni ni-zoom-split-in" ></i>
                 </span>
-                <small>Calendar</small>
+                <small>Trace</small>
               </a>
-              <a href="javascript:void()" class="col-4 shortcut-item">
+              <a [routerLink]="['/traceviewer']" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-orange"
                 >
-                  <i class="ni ni-email-83"></i>
+                  <i class="ni ni-tv-2"></i>
                 </span>
-                <small>Email</small>
+                <small>View trace</small>
               </a>
-              <a href="javascript:void()" class="col-4 shortcut-item">
+              <a [routerLink]="['/dependencies']" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-info"
                 >
-                  <i class="ni ni-credit-card"></i>
+                  <i class="ni ni-cloud-upload-96"></i>
                 </span>
-                <small>Payments</small>
+                <small>Dependencies</small>
               </a>
               <a href="javascript:void()" class="col-4 shortcut-item">
                 <span
@@ -238,13 +238,13 @@
                 </span>
                 <small>Maps</small>
               </a>
-              <a href="javascript:void()" class="col-4 shortcut-item">
+              <a [routerLink]="['/login']" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-yellow"
                 >
-                  <i class="ni ni-basket"></i>
+                  <i class="ni ni-user-run"></i>
                 </span>
-                <small>Shop</small>
+                <small>Logout</small>
               </a>
             </div>
           </div>
@@ -258,11 +258,11 @@
               <span class="avatar avatar-sm rounded-circle">
                 <img
                   alt="Image placeholder"
-                  src="assets/img/theme/team-4.jpg"
+                  src="assets/img/theme/adm.jpg"
                 />
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                <span class="mb-0 text-sm  font-weight-bold">Admin</span>
               </div>
             </div>
           </a>
