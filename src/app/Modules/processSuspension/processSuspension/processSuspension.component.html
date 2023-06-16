@@ -242,17 +242,20 @@
 <!---------------------------------------begin stepper-------------------------------------------------->
 
 
-  <div class="stepperContainer card mb-4"  style="padding:7%;">
+  <div class="stepperContainer card mb-4"  style="padding:7%; margin: 6%;">
     <div id="" class="tab-pane tab-example-result fade show active" role="tabpanel" aria-labelledby="card-component-tab">
     
     <div class="">
       <div class="stepper">
         <div class="step " [ngClass]="{'active': currentStep === 0}">
-          <div class="circle "><i class="ni-button-power text-info"></i></div>
+          <div class="circle  badge-warning">
+            <i class=" ni ni-button-power"> </i>
+          </div>
+          
         </div>
         <div class="line"></div>
         <div class="step" [ngClass]="{'active': currentStep === 1}">
-          <div class="circle">2</div>
+          <div class="circle badge-danger"><i class=" ni ni-fat-remove"> </i></div>
         </div>
         
       </div>
@@ -262,28 +265,56 @@
             <!-- Card body -->
             <div class="card-body" *ngIf="currentStep === 0">
               <div class="pt-4 text-center" >
-                <h5 class="h3 title">
-                  <span class="d-block mb-1">etape 1</span>
-                  <small class="h4 font-weight-light text-muted">hello 1</small>
+                
+                <h2 class=" mb-0 text-warning"> Batch rebootBoxForSuspend.sh</h2>
+                  <h5 class="h3 title">
+                  <!-- <small class="h4 font-weight-light text-muted">hello 1</small> -->
                 </h5>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-warning" (click)="reboot()">Execute</button>
                
-                </div>
+                <button class=" btn btn-icon btn-warning" (click)="rebootBox()">
+                  <span class=" btn-inner--icon">
+                    <i class=" ni ni-button-play"> </i>
+                  </span>
+      
+                  <span class=" btn-inner--text">Execute</span>
+                </button>
+                
+              </div>
+                
                 <div class="mt-3">
-                  <button type="button" class="btn btn-primary" (click)="nextStep()">next</button>
+                  <button type="button" class="btn btn-icon btn-primary" (click)="nextStep()">
+                    <span class=" btn-inner--icon">
+                      <i class=" ni ni-bold-right"> </i>
+                    </span>
+                    <span class=" btn-inner--text">Next</span></button>
                
                 </div>
               </div>
             </div>
             <div class="card-body" *ngIf="currentStep === 1">
               <div class="pt-4 text-center" >
+                <h2 class=" mb-0 text-danger"> Batch treatCR.sh</h2>
                 <h5 class="h3 title">
-                  <span class="d-block mb-1">etape 2</span>
-                  <small class="h4 font-weight-light text-muted">hello 2</small>
-                </h5>
+                <!-- <small class="h4 font-weight-light text-muted">hello 1</small> -->
+              </h5>
+              <div class="mt-3">
+             
+              <button class=" btn btn-icon btn-danger" (click)="treatCrSuspend()">
+                <span class=" btn-inner--icon">
+                  <i class=" ni ni-button-play"> </i>
+                </span>
+    
+                <span class=" btn-inner--text">Execute</span>
+              </button>
+              
+            </div>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-primary" (click)="previousStep()">back</button>
+                  <button type="button" class="btn btn-primary" (click)="previousStep()">
+                    <span class=" btn-inner--icon">
+                      <i class=" ni ni-bold-left"> </i>
+                    </span>
+                    <span class=" btn-inner--text">back</span></button>
             
                 </div>
               </div>

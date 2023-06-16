@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SuspensionserviceService } from 'src/app/services/SuspensionService/suspensionservice.service';
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-process-suspension',
@@ -36,9 +37,57 @@ export class ProcessSuspensionComponent implements OnInit {
   
   postData: any = {}; // Data to be posted
 
-rebootBox() {
-  this.suspensionService.rebootBoxForSuspend();
-}
+  successSwal() {
+    swal.fire({
+      title: "Success",
+      text: "",
+      icon: "success",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: "btn btn-success"
+      }
+    });
+  }
+  warningSwal() {
+    swal.fire({
+      title: "Warning",
+      text: "",
+      icon: "warning",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: "btn btn-warning"
+      }
+    });
+  }
+
+
+  rebootBox() {
+    this.suspensionService.rebootBoxForSuspend().subscribe(
+      (response) => {
+        console.log(response);
+        this.successSwal(); // Call the successSwal() function
+      },
+      (error) => {
+        console.error(error);
+        this.warningSwal();
+      }
+    );
+  }
+
+  treatCrSuspend() {
+    this.suspensionService.treatCrForSuspend().subscribe(
+      (response) => {
+        console.log(response);
+        this.successSwal(); // Call the successSwal() function
+      },
+      (error) => {
+        console.error(error);
+        this.warningSwal();
+      }
+    );
+  }
+
+   
 
 
 

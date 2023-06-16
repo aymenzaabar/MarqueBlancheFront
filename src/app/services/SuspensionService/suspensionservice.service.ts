@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { stringify } from 'querystring';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,30 +9,34 @@ import { Injectable } from '@angular/core';
 export class SuspensionserviceService {
 
   constructor(private http: HttpClient) { }
-  rebootBoxForSuspend() {
-    const username = 'admin';
-    const password = 'admin';
-    const encodedCredentials = btoa(username + ':' + password);
-  
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + encodedCredentials,
-      'Content-Type': 'application/json' // Set the appropriate content type for your request
-    });
-  
-    const url = 'http://localhost:8090/mb-commande/commande/suspend/reboot/batch';
-  
-    const body = {
-      // Your request body data
+  rebootBoxForSuspend(): Observable<any> {
+    
+   /* const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + credentials,
+       'Access-Control-Allow-Origin':'*'
+    });*/
+    const auth = {
+      username : "admin",
+      password :"admin"
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Basic YWRtaW46YWRtaW4='
+      })
     };
-  
-    this.http.post(url, body, { headers }).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    console.log(httpOptions.headers.get('authorization'))
+    const url = 'http://localhost:8090/mb-commande/commande/suspend/reboot/batch';
+   return this.http.post(url,null,httpOptions);
+}
+
+treatCrForSuspend(): Observable<any> {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      Authorization: 'Basic YWRtaW46YWRtaW4='
+    })
+  };
+  const url = 'http://localhost:8090/mb-commande/CRManagement/bicool/batch';
+ return this.http.post(url,null,httpOptions);
 }
 
 }
