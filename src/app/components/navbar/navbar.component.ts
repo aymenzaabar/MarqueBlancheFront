@@ -7,6 +7,7 @@ import {
     LocationStrategy,
     PathLocationStrategy
 } from "@angular/common";
+import { UserService } from "src/app/services/userservice/user.service";
 
 @Component({
     selector: "app-navbar",
@@ -17,11 +18,14 @@ export class NavbarComponent implements OnInit {
     public listTitles: any[];
     public location: Location;
     sidenavOpen: boolean = true;
+    imageUrl: any;
+
 
     constructor(
         location: Location,
         private element: ElementRef,
-        private router: Router
+        private router: Router,
+        private userservice: UserService
     ) {
         this.location = location;
         this.router.events.subscribe((event: Event) => {
@@ -51,6 +55,11 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
+        const userId = sessionStorage.getItem('id');
+        this.imageUrl = this.userservice.getImageById(userId);
+       
+
+
     }
 
     getTitle() {
@@ -92,4 +101,15 @@ export class NavbarComponent implements OnInit {
             this.sidenavOpen = true;
         }
     }
+
+    logout()
+  {
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("refreshToken");
+    sessionStorage.removeItem("roles");
+    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("email");
+    this.router.navigate(['/login']);
+  }
 }

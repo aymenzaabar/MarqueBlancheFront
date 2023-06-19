@@ -26,8 +26,9 @@
   
   .line {
     flex: 1;
-    height: 1px;
-    background-color: #ccc;
+  height: 2px; /* Adjust this value to make the line thicker */
+  background-color: #f00;
+  background:linear-gradient(to right, #f00, #f00, #f00);
   }
   
   .step.active .circle {

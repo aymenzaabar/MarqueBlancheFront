@@ -69,6 +69,10 @@ const routes: Routes = [
       {
          path: "dependencies",
         loadChildren: () =>  import('./Modules/dependencies/dependencies.module').then(m => m.DependenciesModule)
+            },
+            {
+         path: "profile",
+        loadChildren: () =>  import('./Modules/profile/profile.module').then(m => m.ProfileModule)
             }
            
     ]

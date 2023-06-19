@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FacturationserviceService } from 'src/app/services/facturationService/facturationservice.service';
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-processFacturation',
@@ -7,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessFacturationComponent implements OnInit {
   currentStep : number = 0;
-  constructor() { }
+  date:string;
+  constructor( private facturationevrice: FacturationserviceService) { }
 
   ngOnInit(): void {
-    console.log("aaaaaaaaaaaaaaaa")
+    
   }
   steps = ['Étape 1', 'Étape 2', 'Étape 3'];
   
@@ -31,5 +34,45 @@ export class ProcessFacturationComponent implements OnInit {
     // Logique de soumission des données du formulaire
     console.log('Formulaire soumis !');
   }
+
+  
+
+  successSwal() {
+    swal.fire({
+      title: "Success",
+      text: "",
+      icon: "success",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: "btn btn-success"
+      }
+    });
+  }
+  warningSwal() {
+    swal.fire({
+      title: "Warning",
+      text: "",
+      icon: "warning",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: "btn btn-warning"
+      }
+    });
+  }
+
+
+  exportFacture() {
+    this.facturationevrice.exportFacturation(this.date).subscribe(
+      (response) => {
+        console.log(response);
+        this.successSwal(); // Call the successSwal() function
+      },
+      (error) => {
+        console.error(error);
+        this.warningSwal();
+      }
+    );
+  }
+
 
 }

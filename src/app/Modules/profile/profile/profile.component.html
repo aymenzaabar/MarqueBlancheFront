@@ -1,0 +1,330 @@
+<div *ngIf="user"
+  class=" header pb-6 d-flex align-items-center"
+  style="min-height: 500px; background-image: url(assets/img/brand/batima.jpg); background-size: cover; background-position: center top;"
+>
+  <span class=" mask bg-gradient-danger opacity-8"> </span>
+
+  <div class=" container-fluid d-flex align-items-center">
+    <div class=" row">
+      <div class=" col-lg-7 col-md-10">
+        <h1 class=" display-2 text-white">Bonjour {{user.name}}</h1>
+
+        <p class=" text-white mt-0 mb-5">
+            Il s'agit de votre page de profil. Vous pouvez consulter les données de votre profil et mettre à jour vos informations d'identification.
+        </p>
+
+       <!-- <a class=" btn btn-neutral" href="javascript:void(0)"> Edit profile </a>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=" container-fluid mt--6">
+  <div class=" row">
+    <div class=" col-xl-4 order-xl-2">
+      <div class=" card card-profile">
+        <img
+          alt="Image placeholder"
+          class=" card-img-top"
+          src="assets/img/theme/img-1-1000x600.jpg"
+        />
+
+        <div class=" row justify-content-center">
+          <div class=" col-lg-3 order-lg-2">
+            <div class=" card-profile-image">
+              <a href="javascript:void(0)">
+                <img
+                  class=" rounded-circle"
+                  *ngIf="imageUrl" [src]="imageUrl" alt="User Image"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class=" card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
+        >
+        <div class="d-flex justify-content-between">
+          <input type="file" #fileInput style="display: none" (change)="handleFileInput($event)">
+          <a class="btn btn-sm btn-info mr-4" href="javascript:void(0)"  (click)="fileInput.click()"><i class="ni ni-camera-compact">&nbsp;</i>Ajouter</a>
+        
+
+            <a
+              class=" btn btn-sm btn-danger float-right"
+              href="javascript:void(0)"
+            >
+            <i (click)="onDeleteImage(user.image.Id)"class="fas fa-trash"></i>&nbsp; Résilier
+            </a> 
+          </div>
+        </div>
+
+        <div class=" card-body pt-0">
+          <div class=" row">
+            <div class=" col">
+              <div class=" card-profile-stats d-flex justify-content-center">
+                <div>
+                  <span class=" heading"> {{ user.createdAt | date:'dd' }} </span>
+
+                  <span class=" description"> Date  </span>
+                </div>
+
+                <div>
+                  <span class=" heading"> {{ user.createdAt | date:' MMM' }}</span>
+
+                  <span class=" description"> D'entrée </span>
+                </div>
+
+                <div>
+                  <span class=" heading"> {{ user.createdAt | date:' yyyy' }} </span>
+
+                  <span class=" description"> En fonction  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class=" text-center">
+            <h5 class=" h3">
+              {{user.name}}  {{user.lastName}}<span class=" font-weight-light"> </span>
+            </h5>
+
+            <div class=" h5 font-weight-300">
+              <i class=" ni location_pin mr-2"> </i> {{user.username}}
+            </div>
+
+            <div class=" h5 mt-4">
+              <i class=" ni business_briefcase-24 mr-2"> </i> +216{{user.phoneNumber}}
+            </div>
+
+            <div>
+              <i class=" ni education_hat mr-2"> </i> {{user.email}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+    </div>
+
+    <div class=" col-xl-8 order-xl-1">
+      <div class=" row">
+        
+      </div>
+
+      <div class=" card">
+        <div class=" card-header">
+          <div class=" row align-items-center">
+            <div class=" col-8"><h3 class=" mb-0">Modifier profil</h3></div>
+
+           <!-- <div class=" col-4 text-right">
+              <a class=" btn btn-sm btn-primary" href="javascript:void(0)">
+                Settings
+              </a>
+            </div>-->
+          </div>
+        </div>
+
+        <div class=" card-body">
+          <form>
+            <h6 class=" heading-small text-muted mb-4">Vos informations</h6>
+
+            <div class=" pl-lg-4">
+              <div class=" row">
+                <div class=" col-lg-6">
+                    <div class=" form-group">
+                      <label class=" form-control-label" for="input-last-name">
+                        Nom
+                      </label>
+  
+                      <input
+                        class=" form-control"
+                        id="input-last-name"
+                        placeholder="Last name"
+                        type="text"
+                        value="Jesse"
+                      />
+                    </div>
+                  </div>
+
+                  <div class=" col-lg-6">
+                    <div class=" form-group">
+                      <label class=" form-control-label" for="input-first-name">
+                        Prénom
+                      </label>
+  
+                      <input
+                        class=" form-control"
+                        id="input-first-name"
+                        placeholder="First name"
+                        type="text"
+                        value="Lucky"
+                      />
+                    </div>
+                  </div>
+              </div>
+
+              <div class=" row">
+                <div class=" col-lg-6">
+                    <div class=" form-group">
+                      <label class=" form-control-label" for="input-email">
+                         Addresse Email
+                      </label>
+  
+                      <input
+                        class=" form-control"
+                        id="input-email"
+                        placeholder="jesse@example.com"
+                        type="email"
+                      />
+                    </div>
+                  </div>
+               
+                <div class=" col-lg-6">
+                    <div class=" form-group">
+                      <label class=" form-control-label" for="input-username">
+                        Numéro téléphone
+                      </label>
+  
+                      <input
+                        class=" form-control"
+                        id="input-username"
+                        placeholder="Username"
+                        type="text"
+                        value="012345678"
+                      />
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+
+            <hr class=" my-4" />
+
+            <h6 class=" heading-small text-muted mb-4">Identification</h6>
+
+            <div class=" pl-lg-4">
+              <div class=" row">
+                <div class=" col-lg-6">
+                    <div class=" form-group">
+                      <label class=" form-control-label" for="input-username">
+                        Nom d'utilisteur
+                      </label>
+  
+                      <input
+                        class=" form-control"
+                        id="input-username"
+                        placeholder="Username"
+                        type="text"
+                        value="lucky.jesse"
+                      />
+                    </div>
+                  </div>
+
+                  <div class=" col-lg-6">
+                    <div class=" form-group">
+                      <label class=" form-control-label" for="input-username">
+                        Mot de passe
+                      </label>
+  
+                      <input
+                        class=" form-control"
+                        id="input-username"
+                        placeholder="Username"
+                        type="password"
+                        value="lucky.jesse"
+                      />
+                    </div>
+                  </div>
+              </div>
+
+              <!--<div class=" row">
+                <div class=" col-lg-4">
+                  <div class=" form-group">
+                    <label class=" form-control-label" for="input-city">
+                      City
+                    </label>
+
+                    <input
+                      class=" form-control"
+                      id="input-city"
+                      placeholder="City"
+                      type="text"
+                      value="New York"
+                    />
+                  </div>
+                </div>
+
+                <div class=" col-lg-4">
+                  <div class=" form-group">
+                    <label class=" form-control-label" for="input-country">
+                      Country
+                    </label>
+
+                    <input
+                      class=" form-control"
+                      id="input-country"
+                      placeholder="Country"
+                      type="text"
+                      value="United States"
+                    />
+                  </div>
+                </div>
+
+                <div class=" col-lg-4">
+                  <div class=" form-group">
+                    <label class=" form-control-label" for="input-country">
+                      Postal code
+                    </label>
+
+                    <input
+                      class=" form-control"
+                      id="input-postal-code"
+                      placeholder="Postal code"
+                      type="number"
+                    />
+                  </div>
+                </div>
+              </div>-->
+            </div>
+
+
+
+            
+            <hr class=" my-4" />
+
+            <h6 class=" heading-small text-muted mb-4">Photo de profil</h6>
+            <label class=" form-control-label" for="input-username">
+              Votre photo
+            </label>
+
+            <div class=" pl-lg-4">
+              <form>
+                <div class=" custom-file">
+                  <input
+                    class=" custom-file-input"
+                    id="customFileLang"
+                    lang="en"
+                    type="file"
+                  />
+  
+                  <label class=" custom-file-label" for="customFileLang">
+                    Select file
+                  </label>
+                </div>
+                <br>
+               <div> <br><a
+              class=" btn btn-sm btn-default float-right"
+              href="javascript:void(0)"
+            >
+              Confirmer
+               </a>    
+              </div>          </form>
+            </div>
+        
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

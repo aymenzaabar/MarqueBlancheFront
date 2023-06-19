@@ -35,6 +35,7 @@ import { StepperfacComponent } from './stepperfac/stepperfac.component';
     SidebarComponent,
     StepperfacComponent,
     
+    
   ],
   exports: [
     FooterComponent,
