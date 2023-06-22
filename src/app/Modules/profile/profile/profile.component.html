@@ -31,10 +31,10 @@
 
         <div class=" row justify-content-center">
           <div class=" col-lg-3 order-lg-2">
-            <div class=" card-profile-image">
+            <div class=" card-profile-image" style="background-color: #ccc;">
               <a href="javascript:void(0)">
                 <img
-                  class=" rounded-circle"
+                  class=" rounded-circle" aria-placeholder="Photo de Profil"
                   *ngIf="imageUrl" [src]="imageUrl" alt="User Image"
                 />
               </a>
@@ -50,11 +50,11 @@
           <a class="btn btn-sm btn-info mr-4" href="javascript:void(0)"  (click)="fileInput.click()"><i class="ni ni-camera-compact">&nbsp;</i>Ajouter</a>
         
 
-            <a
+            <a (click)="onDeleteImage(user.image.Id)"
               class=" btn btn-sm btn-danger float-right"
               href="javascript:void(0)"
             >
-            <i (click)="onDeleteImage(user.image.Id)"class="fas fa-trash"></i>&nbsp; Résilier
+            <i class="fas fa-trash"></i>&nbsp; Résilier
             </a> 
           </div>
         </div>
@@ -126,39 +126,33 @@
         </div>
 
         <div class=" card-body">
-          <form>
+          <form [formGroup]="updateUserForm" (ngSubmit)="onUpdate()">
             <h6 class=" heading-small text-muted mb-4">Vos informations</h6>
 
             <div class=" pl-lg-4">
               <div class=" row">
                 <div class=" col-lg-6">
                     <div class=" form-group">
-                      <label class=" form-control-label" for="input-last-name">
+                      <label class=" form-control-label" for="name">
                         Nom
                       </label>
   
                       <input
                         class=" form-control"
-                        id="input-last-name"
-                        placeholder="Last name"
-                        type="text"
-                        value="Jesse"
-                      />
+                        type="text" id="name" formControlName="name"  placeholder="{{ user.name }}">                      
+                      
                     </div>
                   </div>
 
                   <div class=" col-lg-6">
                     <div class=" form-group">
-                      <label class=" form-control-label" for="input-first-name">
+                      <label class=" form-control-label" for="lastName  ">
                         Prénom
                       </label>
   
                       <input
                         class=" form-control"
-                        id="input-first-name"
-                        placeholder="First name"
-                        type="text"
-                        value="Lucky"
+                        type="text" id="lastName" formControlName="lastName"placeholder="{{ user.lastName }}"
                       />
                     </div>
                   </div>
@@ -167,160 +161,64 @@
               <div class=" row">
                 <div class=" col-lg-6">
                     <div class=" form-group">
-                      <label class=" form-control-label" for="input-email">
+                      <label class=" form-control-label" for="email">
                          Addresse Email
                       </label>
   
                       <input
                         class=" form-control"
-                        id="input-email"
-                        placeholder="jesse@example.com"
-                        type="email"
+                        type="text" id="email" formControlName="email" placeholder="{{ user.email }}"
                       />
                     </div>
                   </div>
                
                 <div class=" col-lg-6">
                     <div class=" form-group">
-                      <label class=" form-control-label" for="input-username">
+                      <label class=" form-control-label" for="phoneNumber">
                         Numéro téléphone
                       </label>
   
                       <input
                         class=" form-control"
-                        id="input-username"
-                        placeholder="Username"
-                        type="text"
-                        value="012345678"
+                        type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="{{ user.phoneNumber }}"
                       />
                     </div>
                   </div>
                 
               </div>
             </div>
-
+<!--
             <hr class=" my-4" />
 
             <h6 class=" heading-small text-muted mb-4">Identification</h6>
 
             <div class=" pl-lg-4">
               <div class=" row">
-                <div class=" col-lg-6">
-                    <div class=" form-group">
-                      <label class=" form-control-label" for="input-username">
-                        Nom d'utilisteur
-                      </label>
-  
-                      <input
-                        class=" form-control"
-                        id="input-username"
-                        placeholder="Username"
-                        type="text"
-                        value="lucky.jesse"
-                      />
-                    </div>
-                  </div>
 
-                  <div class=" col-lg-6">
+                  <div class=" col-md-4">
                     <div class=" form-group">
-                      <label class=" form-control-label" for="input-username">
+                      <label class=" form-control-label" for="password">
                         Mot de passe
                       </label>
   
                       <input
                         class=" form-control"
-                        id="input-username"
-                        placeholder="Username"
-                        type="password"
-                        value="lucky.jesse"
+                        type="password" id="password" formControlName="password"
                       />
                     </div>
                   </div>
-              </div>
+              </div>   
 
-              <!--<div class=" row">
-                <div class=" col-lg-4">
-                  <div class=" form-group">
-                    <label class=" form-control-label" for="input-city">
-                      City
-                    </label>
+              
 
-                    <input
-                      class=" form-control"
-                      id="input-city"
-                      placeholder="City"
-                      type="text"
-                      value="New York"
-                    />
-                  </div>
-                </div>
-
-                <div class=" col-lg-4">
-                  <div class=" form-group">
-                    <label class=" form-control-label" for="input-country">
-                      Country
-                    </label>
-
-                    <input
-                      class=" form-control"
-                      id="input-country"
-                      placeholder="Country"
-                      type="text"
-                      value="United States"
-                    />
-                  </div>
-                </div>
-
-                <div class=" col-lg-4">
-                  <div class=" form-group">
-                    <label class=" form-control-label" for="input-country">
-                      Postal code
-                    </label>
-
-                    <input
-                      class=" form-control"
-                      id="input-postal-code"
-                      placeholder="Postal code"
-                      type="number"
-                    />
-                  </div>
-                </div>
-              </div>-->
-            </div>
-
-
-
-            
-            <hr class=" my-4" />
-
-            <h6 class=" heading-small text-muted mb-4">Photo de profil</h6>
-            <label class=" form-control-label" for="input-username">
-              Votre photo
-            </label>
-
-            <div class=" pl-lg-4">
-              <form>
-                <div class=" custom-file">
-                  <input
-                    class=" custom-file-input"
-                    id="customFileLang"
-                    lang="en"
-                    type="file"
-                  />
-  
-                  <label class=" custom-file-label" for="customFileLang">
-                    Select file
-                  </label>
-                </div>
-                <br>
-               <div> <br><a
-              class=" btn btn-sm btn-default float-right"
-              href="javascript:void(0)"
+            </div>-->
+            <div> <br><button type="submit"
+              class=" btn btn-primary float-right"
+             
             >
-              Confirmer
-               </a>    
-              </div>          </form>
-            </div>
+              Mettre à jour
+            </button>    
+              </div>
         
           </form>
         </div>

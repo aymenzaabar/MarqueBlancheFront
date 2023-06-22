@@ -4,7 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
-import { ToastrModule } from "ngx-toastr";
 import { TagInputModule } from "ngx-chips";
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
@@ -34,7 +33,6 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
     ComponentsModule,
     BsDropdownModule.forRoot(),
     AppRoutingModule,
-    ToastrModule.forRoot(),
     CollapseModule.forRoot(),
     TagInputModule,
     BrowserModule,

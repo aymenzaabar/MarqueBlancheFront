@@ -8,6 +8,12 @@ const routes: Routes = [
         path: "",
         component: ProcessFacturationComponent
       },
+      {
+
+        path: "logs",
+        component: ProcessFacturationComponent
+      },
+      
 
 
 ];

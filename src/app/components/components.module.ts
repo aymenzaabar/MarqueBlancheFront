@@ -18,6 +18,7 @@ import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StepperfacComponent } from './stepperfac/stepperfac.component';
+import { LogsComponent } from './logs/logs.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { StepperfacComponent } from './stepperfac/stepperfac.component';
     NavbarComponent,
     SidebarComponent,
     StepperfacComponent,
+    LogsComponent,
     
     
   ],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FacturationserviceService } from 'src/app/services/facturationService/facturationservice.service';
+import { WebsocketService } from 'src/app/services/websocket/websocket.service';
 import swal from "sweetalert2";
 
 @Component({
@@ -10,10 +11,14 @@ import swal from "sweetalert2";
 export class ProcessFacturationComponent implements OnInit {
   currentStep : number = 0;
   date:string;
-  constructor( private facturationevrice: FacturationserviceService) { }
+  constructor( private facturationevrice: FacturationserviceService,private websocketService: WebsocketService) { }
+  logs: string[] = [];
 
   ngOnInit(): void {
-    
+    this.websocketService.connect();
+    this.websocketService.getLogs().subscribe((log: string) => {
+      this.logs.push(log);
+    });
   }
   steps = ['Étape 1', 'Étape 2', 'Étape 3'];
   

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/authservice/auth.service';
 import { TokenService } from 'src/app/services/tokenservice/token.service';
@@ -24,17 +23,17 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   user:User=new User();
 
-  constructor(private authService: AuthService, private token: TokenService, private router: Router,private toastr: ToastrService) { }
+  constructor(private authService: AuthService, private token: TokenService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.token.getToken()) {
       this.isLoggedIn = true;
-      this.toastr.warning('Vous étes déja connecté', 'Success', {
-        timeOut: 3000,
-        closeButton: true,
-        progressBar: true,
-        positionClass: 'toast-top-right' 
-      });
+      // this.toastr.warning('Vous étes déja connecté', 'Success', {
+      //   timeOut: 3000,
+      //   closeButton: true,
+      //   progressBar: true,
+      //   positionClass: 'toast-top-right' 
+      // });
       const role = sessionStorage.getItem("role");
       if (role === 'ROLE_ADMIN') {
         this.router.navigate(['/facturation']);
@@ -79,25 +78,26 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
   
         if (err.status === 401) {
- this.toastr.error('username ou mot de passe incorrecte ', 'Attention !!', {
-          timeOut: 3000,
-          closeButton: true,
-          progressBar: true,
-          positionClass: 'toast-top-right' 
-        });
-        } else if (err.status === 403) {
-          this.toastr.error('votre compte a été sanctionné par l utilisateur', 'Attention !!', {
-            timeOut: 3000,
-            closeButton: true,
-            progressBar: true,
-            positionClass: 'toast-top-right' 
-          });        } else {
-          this.toastr.error('Veuillez vous Verifier votre email', 'Attention !!', {
-            timeOut: 3000,
-            closeButton: true,
-            progressBar: true,
-            positionClass: 'toast-top-right' 
-          });        }
+//  this.toastr.error('username ou mot de passe incorrecte ', 'Attention !!', {
+//           timeOut: 3000,
+//           closeButton: true,
+//           progressBar: true,
+//           positionClass: 'toast-top-right' 
+//         });
+        // } else if (err.status === 403) {
+        //   this.toastr.error('votre compte a été sanctionné par l utilisateur', 'Attention !!', {
+        //     timeOut: 3000,
+        //     closeButton: true,
+        //     progressBar: true,
+        //     positionClass: 'toast-top-right' 
+        //   });        } else {
+        //   this.toastr.error('Veuillez vous Verifier votre email', 'Attention !!', {
+        //     timeOut: 3000,
+        //     closeButton: true,
+        //     progressBar: true,
+        //     positionClass: 'toast-top-right' 
+        //   });        
+      }
   
           }
     });
