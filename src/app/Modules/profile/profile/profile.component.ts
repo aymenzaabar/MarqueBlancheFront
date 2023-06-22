@@ -1,7 +1,7 @@
 import { DatePipe, formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/userservice/user.service';
 
@@ -17,20 +17,22 @@ export class ProfileComponent implements OnInit {
   imageUrl: any;
   idImage : any;
   userId:any
+  submitted = false;
+
   private photoUrl= 'http://localhost:8020/api/image/upload';
   updateUserForm: FormGroup;
   
 
-  constructor(private userservice:UserService, private http:HttpClient )  {
+  constructor(private userservice:UserService, private http:HttpClient,private formBuilder: FormBuilder )  {
 
-    this.updateUserForm = new FormGroup({
+   /* this.updateUserForm = new FormGroup({
       name: new FormControl(),
       lastName: new FormControl(),
       //username: new FormControl(),
       email: new FormControl(),
      // password: new FormControl(),
       phoneNumber: new FormControl()
-    });
+    });*/
    }
 
   ngOnInit(): void {
@@ -40,12 +42,14 @@ export class ProfileComponent implements OnInit {
     this.imageUrl = this.userservice.getImageById(this.userId);
     this.id = this.userservice.getImageById(this.userId);
     console.log(this.id);
+    this.getuser(this.userId);
 
-
-
-    this.getuser(this.userId)
-
-    
+    this.updateUserForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required, Validators.minLength(8)]]
+  });
   }
 
   
@@ -150,12 +154,16 @@ getuser(id:any){
       }
     );
   }
-
+  get f() { return this.updateUserForm.controls; }
   onUpdate() {
+    this.submitted = true;
+
     const user = this.updateUserForm.value;
     const idUser = sessionStorage.getItem('id');
     const apiUrl = `http://localhost:8020/api/user/updateUser/${idUser}`;
-
+    if (this.updateUserForm.invalid) {
+      return;
+  }
     this.http.put(apiUrl, user).subscribe(
       response => {
         // Handle success response

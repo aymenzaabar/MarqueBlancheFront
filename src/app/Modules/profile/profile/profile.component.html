@@ -139,21 +139,27 @@
   
                       <input
                         class=" form-control"
-                        type="text" id="name" formControlName="name"  placeholder="{{ user.name }}">                      
-                      
+                        type="text" id="name" formControlName="name"  placeholder="{{ user.name }}" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>                      
+                       <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Le nom est obligatoire</div>
                     </div>
+                    </div>
+                   
                   </div>
 
                   <div class=" col-lg-6">
                     <div class=" form-group">
-                      <label class=" form-control-label" for="lastName  ">
+                      <label class=" form-control-label" for="lastName">
                         Prénom
                       </label>
   
                       <input
                         class=" form-control"
-                        type="text" id="lastName" formControlName="lastName"placeholder="{{ user.lastName }}"
+                        type="text" id="lastName" formControlName="lastName"placeholder="{{ user.lastName }}" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
                       />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Le prénom est obligatoire</div>
+                    </div>
                     </div>
                   </div>
               </div>
@@ -167,8 +173,12 @@
   
                       <input
                         class=" form-control"
-                        type="text" id="email" formControlName="email" placeholder="{{ user.email }}"
+                        type="text" id="email" formControlName="email" placeholder="{{ user.email }}" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                       />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">L'e-mail est obligatoire</div>
+                        <div *ngIf="f.email.errors.email">L'email doit être une adresse email valide</div>
+                    </div>
                     </div>
                   </div>
                
@@ -180,8 +190,12 @@
   
                       <input
                         class=" form-control"
-                        type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="{{ user.phoneNumber }}"
+                        type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="{{ user.phoneNumber }}" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
                       />
+                      <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNumber.errors.required">Le numéro de téléphone est obligatoire</div>
+                        <div *ngIf="f.phoneNumber.errors.minlength">Le numéro de téléphone doit comporter au moins 6 caractères</div>
+                    </div>
                     </div>
                   </div>
                 
