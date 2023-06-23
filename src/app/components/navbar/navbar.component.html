@@ -41,7 +41,7 @@
                 >
                   <i class="ni ni-zoom-split-in" ></i>
                 </span>
-                <small>Trace</small>
+                <small>Tracer</small>
               </a>
               <a [routerLink]="['/traceviewer']" class="col-4 shortcut-item">
                 <span
@@ -49,7 +49,7 @@
                 >
                   <i class="ni ni-tv-2"></i>
                 </span>
-                <small>View trace</small>
+                <small>Voir traces</small>
               </a>
               <a [routerLink]="['/dependencies']" class="col-4 shortcut-item">
                 <span
@@ -57,31 +57,31 @@
                 >
                   <i class="ni ni-cloud-upload-96"></i>
                 </span>
-                <small>Dependencies</small>
+                <small>Dependences</small>
               </a>
               <a href="javascript:void()" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-green"
                 >
-                  <i class="ni ni-books"></i>
+                  <i class="ni ni-sound-wave"></i>
                 </span>
-                <small>Reports</small>
+                <small>Admin</small>
               </a>
-              <a href="javascript:void()" class="col-4 shortcut-item">
+              <a [routerLink]="['/users']" href="javascript:void()" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-purple"
                 >
-                  <i class="ni ni-pin-3"></i>
+                  <i class="ni ni-badge"></i>
                 </span>
-                <small>Maps</small>
+                <small>Internautes</small>
               </a>
-              <a [routerLink]="['/login']"  (click)="Logout()" class="col-4 shortcut-item">
+              <a href="#" (click)="logout()" class="col-4 shortcut-item">
                 <span
                   class="shortcut-media avatar rounded-circle bg-gradient-yellow"
                 >
                   <i class="ni ni-user-run"></i>
                 </span>
-                <small>Logout</small>
+                <small>Déconnexion</small>
               </a>
             </div>
           </div>
@@ -95,11 +95,11 @@
               <span class="avatar avatar-sm rounded-circle">
                 <img
                   alt="Image placeholder"
-                  src="{assets/img/theme/adm.jpg}"
+                  *ngIf="imageUrl" [src]="imageUrl" 
                 />
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Admin</span>
+                <span class="mb-0 text-sm  font-weight-bold">{{user.username}}</span>
               </div>
             </div>
           </a>
@@ -115,7 +115,7 @@
               [routerLink]="['/profile']"
               class="dropdown-item"
             >
-              <i class="ni ni-single-02"></i> <span>My profile</span>
+              <i class="ni ni-single-02"></i> <span>Mon profil</span>
             </a>
             <a
               routerLinkActive="active"
@@ -139,8 +139,8 @@
               <i class="ni ni-support-16"></i> <span>Support</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="javascript:void()" class="dropdown-item">
-              <i class="ni ni-user-run"></i> <span>Logout</span>
+            <a href="#" (click)="logout()" class="dropdown-item">
+              <i class="ni ni-user-run"></i> <span>Déconnexion</span>
             </a>
           </div>
         </li>

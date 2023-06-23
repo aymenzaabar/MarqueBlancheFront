@@ -19,7 +19,9 @@ export class NavbarComponent implements OnInit {
     public location: Location;
     sidenavOpen: boolean = true;
     imageUrl: any;
-
+    user:any;
+    idImage : any;
+    userId:any
 
     constructor(
         location: Location,
@@ -57,10 +59,26 @@ export class NavbarComponent implements OnInit {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         const userId = sessionStorage.getItem('id');
         this.imageUrl = this.userservice.getImageById(userId);
-       
+        this.getuser(this.userId);
+        this. userId = sessionStorage.getItem('id');
+
+       this.user=this.getuser(userId);
 
 
     }
+    getuser(id:any){
+  
+        this.userservice.getUserById(id).subscribe(
+          (data: any) => {
+            this.user = data;
+            this.imageUrl = data.image?.imagenUrl;
+            this.idImage = data.image.id;
+          },
+          (error: any) => {
+            console.log('Error fetching user data:', error);
+          }
+        );
+      }
 
     getTitle() {
         var titlee = this.location.prepareExternalUrl(this.location.path());

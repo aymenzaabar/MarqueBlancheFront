@@ -23,7 +23,7 @@
        
         <div class="card-body px-lg-5 py-lg-5">
           <div class="text-center text-muted mb-4">
-            <small>Sign in with credentials</small>
+            <small>Se connecter avec identifiants</small>
           </div>
           <form *ngIf="!isLoggedIn"
           name="form"
@@ -33,9 +33,9 @@
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                 </div>
-                <input type="text" name="username" class="form-control" [(ngModel)]="form.username" required minlength="3" maxlength="50" #username="ngModel" ngModel >
+                <input type="text" name="username" placeholder="Nom d'utilisateur" class="form-control" [(ngModel)]="form.username" required minlength="3" maxlength="50" #username="ngModel" ngModel >
               </div>
             </div>
             <div class="form-group">
@@ -43,26 +43,26 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input name="password" type="password" class="form-control" [(ngModel)]="form.password" required minlength="6" maxlength="20" #password="ngModel">              </div>
+                <input name="password" placeholder="Mot de passe" type="password" class="form-control" [(ngModel)]="form.password" required minlength="6" maxlength="20" #password="ngModel">              </div>
             </div>
-            <div class="custom-control custom-control-alternative custom-checkbox">
+            <!-- <div class="custom-control custom-control-alternative custom-checkbox">
               <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
               <label class="custom-control-label" for=" customCheckLogin">
-                <span class="text-muted">Remember me</span>
+               <span class="text-muted">Remember me</span>
               </label>
-            </div>
+            </div>-->
             <div class="text-center">
-              <button type="submit" class="btn btn-primary my-4">Sign in</button>
+              <button type="submit" class="btn btn-primary my-4">Se connecter</button>
             </div>
           </form>
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-6">
-          <a href="javascript:void(0)" class="text-light"><small>Forgot password?</small></a>
+          <a href="javascript:void(0)" class="text-light"><small>Mot de passe oublié ?</small></a>
         </div>
         <div class="col-6 text-right">
-          <a href="javascript:void(0)" class="text-light"><small>Create new account</small></a>
+         <!-- <a href="javascript:void(0)" class="text-light"><small>Create new account</small></a>-->
         </div>
       </div>
     </div>

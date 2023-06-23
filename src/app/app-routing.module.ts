@@ -70,14 +70,14 @@ const routes: Routes = [
          path: "dependencies",
         loadChildren: () =>  import('./Modules/dependencies/dependencies.module').then(m => m.DependenciesModule)
             },
-            {
+      {
          path: "profile",
         loadChildren: () =>  import('./Modules/profile/profile.module').then(m => m.ProfileModule)
             },
-          {
-              path: "users",
-             loadChildren: () =>  import('./Modules/usersmanagement/usersmanagement.module').then(m => m.UsersmanagementModule)
-                 },
+      {
+         path: "users",
+        loadChildren: () =>  import('./Modules/usersmanagement/usersmanagement.module').then(m => m.UsersmanagementModule)
+            }
            
     ]
   },
@@ -96,7 +96,7 @@ const routes: Routes = [
 
   {
     path: "**",
-    redirectTo: "home"
+    redirectTo: "#/login"
   }
 ];
 
