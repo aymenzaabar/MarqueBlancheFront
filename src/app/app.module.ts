@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
@@ -15,6 +15,7 @@ import { ComponentsModule } from "./components/components.module";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
+import { ModalModule } from "ngx-bootstrap/modal";
 
 
 
@@ -39,6 +40,9 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

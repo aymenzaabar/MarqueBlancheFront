@@ -3,35 +3,35 @@
       <div class=" header-body">
         <div class=" row align-items-center py-4">
           <div class=" col-lg-6 col-7">
-            <h6 class=" h2 text-white d-inline-block mb-0">Tables</h6>
+            <h6 class=" h2 text-white d-inline-block mb-0"> Collaborateurs</h6>
   
-            <nav
+           <nav
               aria-label="breadcrumb"
               class=" d-none d-md-inline-block ml-md-4"
             >
               <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class=" breadcrumb-item">
-                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                  <a href="javascript:void(0)"> <i class="ni ni-badge"> </i> </a>
                 </li>
   
-                <li class=" breadcrumb-item">
+                <!-- <li class=" breadcrumb-item">
                   <a href="javascript:void(0)"> Tables </a>
                 </li>
   
-                <li aria-current="page" class=" breadcrumb-item active">
+                <li aria-current="page" class=" breadcrumb-item active"> 
                   Tables
-                </li>
+                </li> -->
               </ol>
             </nav>
           </div>
   
-          <div class=" col-lg-6 col-5 text-right">
+          <!--<div class=" col-lg-6 col-5 text-right">
             <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
   
             <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
               Filters
             </a>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
 <div class=" card">
     <div class=" card-header border-0">
       <div class=" row">
-        <div class=" col-6"><h3 class=" mb-0">Inline actions</h3></div>
+        <div class=" col-6"><h3 class=" mb-0"></h3></div>
 
         <div class=" col-6 text-right">
           <a
@@ -60,7 +60,137 @@
               <i class=" fas fa-user-edit"> </i>
             </span>
 
-            <span class=" btn-inner--text"> Export </span>
+            <span class=" btn-inner--text" (click)="openFormModal(modalForm)"> Ajout Collaborateur 
+              
+            </span>
+            <ng-template #modalForm>
+              <div class=" modal-body p-0">
+                <div class=" card bg-secondary border-0 mb-0">
+                  <div class=" card-header bg-transparent pb-1 text-center">
+                    <label
+                    class=" text text-center"
+                    for=" customCheckLogin"
+                  >
+                    <span>Données Collab</span>
+                  </label>
+
+                   
+                  </div>
+
+                  <div class=" card-body px-lg-5 py-lg-5">
+                    
+
+                    <form  [formGroup]="addUserForm" (ngSubmit)="onAdd()">
+                      <div
+                        class="form-group mb-3"
+                        
+                      >
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="ni ni-circle-08"></i
+                            ></span>
+                          </div>
+                          <input
+                          class=" form-control"
+                          type="text" id="name" formControlName="name"  placeholder="Nom" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                          />
+                          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required">Le nom est obligatoire</div>
+                        </div>
+                        </div>
+                      </div>
+                      <div
+                        class="form-group mb-3"
+                      >
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="ni ni-email-83"></i
+                            ></span>
+                          </div>
+                          <input
+                          class=" form-control"
+                          type="email" id="eamil" formControlName="email"  placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="form-group mb-3"
+                      >
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="ni ni-mobile-button"></i
+                            ></span>
+                          </div>
+                          <input
+                          class=" form-control"
+                          type="tel" id="phone" formControlName="phoneNumber"  placeholder="Téléphone" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="form-group mb-3"
+                      >
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="ni ni-badge"></i
+                            ></span>
+                          </div>
+                          <input
+                          class=" form-control"
+                          type="text" id="username" formControlName="username"  placeholder="Nom d'utilisateur" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="form-group"
+                      >
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="ni ni-lock-circle-open"></i
+                            ></span>
+                          </div>
+                          <input
+                          class=" form-control"
+                          type="password" id="password" formControlName="password"  placeholder="Mot de passe" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="form-group mb-3"
+                      >
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="ni ni-key-25"></i
+                            ></span>
+                          </div>
+                          <select class=" form-control" id="exampleFormControlSelect1">
+                            <option> Collaborateur </option>
+          
+                            <option> Admin </option>
+          
+                            <option> Manager </option>
+          
+                          </select>
+                        </div>
+                      </div>
+                      
+                     
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary my-4">
+                          Enregistrer
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
           </a>
         </div>
       </div>
@@ -86,7 +216,7 @@
             <td class=" table-user">
               <img
                 class=" avatar rounded-circle mr-3"
-                src="assets/img/theme/team-1.jpg"
+                src="{{user.image.imageUrl}}"
               />
 
               <b>{{user.name}}  {{user.lastName}} </b>
