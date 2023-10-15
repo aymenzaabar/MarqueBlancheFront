@@ -209,8 +209,9 @@
 
             <th>Date céation</th>
             <th class=" sort" data-sort="status" scope="col">Statut</th>
-
             <th>E-mail</th>
+            <th class=" sort" data-sort="status" scope="col">Archivage</th>
+
 
             <th></th>
           </tr>
@@ -234,13 +235,20 @@
 
                   <span class=" status"> {{ user.enabled === true ? 'activé' : 'pas encore' }} </span>
                 </span>
-              </td>
+            </td>
 
             <td>
               <a class=" font-weight-bold" href="javascript:void(0)">
                 {{user.email}}
               </a>
             </td>
+            <td>
+              <span class=" badge badge-dot mr-4">
+                <i class=" {{ user.isLocked === true ? 'bg-danger' : 'bg-success' }}"> </i>
+
+                <span class=" status"> {{ user.isLocked === true ? 'Compte Archivé' : 'Non archivé' }} </span>
+              </span>
+          </td>
 
             <td class=" table-actions">
               <a
@@ -248,18 +256,107 @@
                 tooltip="Edit product"
                 placement="top"
                 href="javascript:void(0)"
+                (click)="openDefaultModal(modalDefault)"
+
               >
                 <i class=" fas fa-user-edit"> </i>
               </a>
+              <ng-template #modalDefault>
+                <div class=" modal-header">
+                  <h6 class=" modal-title" id="modal-title-default">
+                    Archivage
+                  </h6>
 
+                  <button
+                    aria-label="Close"
+                    class=" close"
+                    data-dismiss="modal"
+                    type="button"
+                    (click)="defaultModal.hide()"
+                  >
+                    <span aria-hidden="true"> × </span>
+                  </button>
+                </div>
+
+                <div class=" modal-body">
+                  <div class=" py-3 text-center">
+                    <i class="fas fa-lock-circle-open ni-3x"></i>
+                    <h4 class=" heading mt-4">Attention!</h4>
+                    <p>
+                      Êtes-vous sûr de vouloir archiver cet utilisateur ? <br>
+                      Veuillez noter que l'archivage de cet utilisateur l'empêchera de se connecter au tableau de bord.
+                    </p>
+                  </div>
+                </div>
+
+                <div class=" modal-footer">
+                  <button class=" btn btn-primary" type="button" (click)="archiveUser(user.Id)" (click)="defaultModal.hide()">
+                    Confirmer
+                  </button>
+
+                  <button
+                    class=" btn btn-link ml-auto"
+                    data-dismiss="modal"
+                    type="button"
+                    (click)="defaultModal.hide()"
+                  >
+                    Fermer
+                  </button>
+                </div>
+              </ng-template>
               <a
                 class=" table-action table-action-delete"
                 tooltip="Delete product"
                 placement="top"
                 href="javascript:void(0)"
+                (click)="openNotificationModal(modalNotification)"
               >
                 <i class=" fas fa-trash"> </i>
               </a>
+              <ng-template #modalNotification>
+                <div class=" modal-header">
+                  <h6 class=" modal-title" id="modal-title-notification">
+                    Suppression
+                  </h6>
+
+                  <button
+                    aria-label="Close"
+                    class=" close"
+                    data-dismiss="modal"
+                    type="button"
+                    (click)="notificationModal.hide()"
+                  >
+                    <span aria-hidden="true"> × </span>
+                  </button>
+                </div>
+
+                <div class=" modal-body">
+                  <div class=" py-3 text-center">
+                    <i class=" fas fa-trash ni-3x"> </i>
+
+                    <h4 class=" heading mt-4">Attention!</h4>
+
+                    <p>
+                      Êtes-vous sûr de vouloir supprimer cet utilisateur et toutes ses données ? Cette action est irréversible !
+                    </p>
+                  </div>
+                </div>
+
+                <div class=" modal-footer">
+                  <button class=" btn btn-white" type="button" (click)="onDeleteUser(user.id)" (click)="notificationModal.hide()" >
+                    Ok, Supprimer
+                  </button>
+
+                  <button
+                    class=" btn btn-link text-white ml-auto"
+                    data-dismiss="modal"
+                    type="button"
+                    (click)="notificationModal.hide()"
+                  >
+                    Fermer
+                  </button>
+                </div>
+              </ng-template>
             </td>
           </tr>
           

@@ -35,7 +35,17 @@ export class UsersmanagementComponent implements OnInit {
 
   addUserForm: FormGroup;
 
-  
+  notificationModal: BsModalRef;
+  notification = {
+    keyboard: true,
+    class: "modal-dialog-centered modal-danger"
+  };
+
+  defaultModal: BsModalRef;
+  default = {
+    keyboard: true,
+    class: "modal-dialog-centered"
+  };
  
 
   constructor(private userService: UserService,private http: HttpClient, private formBuilder: FormBuilder,
@@ -73,7 +83,21 @@ export class UsersmanagementComponent implements OnInit {
           }
         );
     }
-  
+    openDefaultModal(modalDefault: TemplateRef<any>) {
+      this.defaultModal = this.modalService.show(
+        modalDefault,
+         this.default
+         );
+    }
+
+    openNotificationModal(modalNotification: TemplateRef<any>) {
+      this.notificationModal = this.modalService.show(
+        modalNotification,
+        this.notification
+      );
+    }
+    
+
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(
       response => {
@@ -86,6 +110,30 @@ export class UsersmanagementComponent implements OnInit {
 
     
   }
+  onDeleteUser(userId: number) {
+  
+      // Appeler l'API de suppression de l'utilisateur par ID
+      this.http.delete(`http://localhost:8020/api/user/deleteUser/${userId}`)
+        .subscribe(
+          () => {
+            // Suppression réussie, effectuez ici des actions supplémentaires si nécessaires
+            console.log('Utilisateur supprimé avec succès.');
+          },
+          (error) => {
+            // Gérez les erreurs ici
+            console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+          }
+        );
+    
+  }
+
+    private apiUrl = 'http://localhost:8020/api/user/archiveUser';
+    archiveUser(userId: number) {
+    // Vous pouvez passer l'ID de l'utilisateur à archiver en paramètre si nécessaire
+    return this.http.post(this.apiUrl, { userId });
+    }
+
+
   
   get f() { return this.addUserForm.controls; }
   onAdd() {
@@ -101,7 +149,7 @@ export class UsersmanagementComponent implements OnInit {
     this.http.post(apiUrl, user).subscribe(
       (response) => {
         // Handle success response
-        
+        this.userService.getAllUsers;
         console.log('API call successful', response);
         // Handle success response here
       },
@@ -123,4 +171,6 @@ function noWhitespaceValidator(): ValidatorFn {
     return null;
   };
 }
+
+
 
