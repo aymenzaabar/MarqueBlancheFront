@@ -71,7 +71,7 @@
                     class=" text text-center"
                     for=" customCheckLogin"
                   >
-                    <span>Données Collab</span>
+                    <span>Données Collaborateur</span>
                   </label>
 
                    
@@ -80,113 +80,118 @@
                   <div class=" card-body px-lg-5 py-lg-5">
                     
 
-                    <form  [formGroup]="addUserForm" (ngSubmit)="onAdd()">
-                      <div
-                        class="form-group mb-3"
-                        
-                      >
+                    <form [formGroup]="addUserForm" (ngSubmit)="onAdd()">
+                      <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"
-                              ><i class="ni ni-circle-08"></i
-                            ></span>
+                            <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                           </div>
                           <input
-                          class=" form-control"
-                          type="text" id="name" formControlName="name"  placeholder="Nom" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                            class="form-control"
+                            type="text"
+                            id="name"
+                            formControlName="name"
+                            placeholder="Nom"
+                            [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
                           />
                           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                             <div *ngIf="f.name.errors.required">Le nom est obligatoire</div>
-                        </div>
+                          </div>
                         </div>
                       </div>
-                      <div
-                        class="form-group mb-3"
-                      >
+                      <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"
-                              ><i class="ni ni-email-83"></i
-                            ></span>
+                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                           </div>
                           <input
-                          class=" form-control"
-                          type="email" id="eamil" formControlName="email"  placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                            class="form-control"
+                            type="email"
+                            id="email"
+                            formControlName="email"
+                            placeholder="Email"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                           />
+                          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">L'email est obligatoire</div>
+                            <div *ngIf="f.email.errors.email">L'email n'est pas valide</div>
+                          </div>
                         </div>
                       </div>
-                      <div
-                        class="form-group mb-3"
-                      >
+                      <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"
-                              ><i class="ni ni-mobile-button"></i
-                            ></span>
+                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                           </div>
                           <input
-                          class=" form-control"
-                          type="tel" id="phone" formControlName="phoneNumber"  placeholder="Téléphone" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+                            class="form-control"
+                            type="tel"
+                            id="phone"
+                            formControlName="phoneNumber"
+                            placeholder="Téléphone"
+                            [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
                           />
+                          <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.phoneNumber.errors.required">Le numéro téléphone est obligatoire</div>
+                            <div *ngIf="f.phoneNumber.errors.minlength">Le numéro de téléphone doit comporter au moins 8 caractères</div>
+                          </div>
                         </div>
                       </div>
-                      <div
-                        class="form-group mb-3"
-                      >
+                      <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"
-                              ><i class="ni ni-badge"></i
-                            ></span>
+                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
                           </div>
                           <input
-                          class=" form-control"
-                          type="text" id="username" formControlName="username"  placeholder="Nom d'utilisateur" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                            class="form-control"
+                            type="text"
+                            id="username"
+                            formControlName="username"
+                            placeholder="Nom d'utilisateur"
+                            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
                           />
+                          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Le nom d'utilisateur est obligatoire</div>
+                            <!-- Include your custom validator message if needed -->
+                          </div>
                         </div>
                       </div>
-                      <div
-                        class="form-group"
-                      >
+                      <div class="form-group">
                         <div class="input-group input-group-alternative">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"
-                              ><i class="ni ni-lock-circle-open"></i
-                            ></span>
+                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                           </div>
                           <input
-                          class=" form-control"
-                          type="password" id="password" formControlName="password"  placeholder="Mot de passe" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                            class="form-control"
+                            type="password"
+                            id="password"
+                            formControlName="password"
+                            placeholder="Mot de passe"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
                           />
+                          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Le mot de passe est obligatoire</div>
+                            <div *ngIf="f.password.errors.minlength">Le mot de passe doit comporter au moins 8 caractères</div>
+                          </div>
                         </div>
                       </div>
-                      <div
-                        class="form-group mb-3"
-                      >
-                        <div class="input-group input-group-alternative">
+                      <div class="form-group mb-3"  for="exampleFormControlSelect2">
+                        <div class="input-group input-group-alternative"  for="exampleFormControlSelect2">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"
-                              ><i class="ni ni-key-25"></i
-                            ></span>
+                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                           </div>
-                          <select class=" form-control" id="exampleFormControlSelect1">
-                            <option> Collaborateur </option>
-          
-                            <option> Admin </option>
-          
-                            <option> Manager </option>
-          
+                          <select id="exampleFormControlSelect2" formControlName="roles" class="form-control" multiple="multiple">
+                            <option value="">Collaborateur</option>
+                            <option value="admin">Admin</option>
+                            <option value="mod">Manager</option>
                           </select>
                         </div>
                       </div>
-                      
-                     
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary my-4">
-                          Enregistrer
-                        </button>
+                        <button type="submit" class="btn btn-primary my-4">Enregistrer</button>
                       </div>
                     </form>
+                    
                   </div>
                 </div>
               </div>
@@ -216,7 +221,7 @@
             <td class=" table-user">
               <img
                 class=" avatar rounded-circle mr-3"
-                src="{{user.image.imageUrl}}"
+                [src]="user.image?.imagenUrl ? user.image.imagenUrl : 'assets/img/theme/avatar.jpg'" 
               />
 
               <b>{{user.name}}  {{user.lastName}} </b>
@@ -225,7 +230,7 @@
             <td><span class=" text-muted"> {{ user.createdAt | date:' dd/MMM/yyyy' }}</span></td>
             <td>
                 <span class=" badge badge-dot mr-4">
-                  <i class=" {{ user.enabled === true ? 'bg-warning' : 'bg-warning' }}"> </i>
+                  <i class=" {{ user.enabled === true ? 'bg-success' : 'bg-warning' }}"> </i>
 
                   <span class=" status"> {{ user.enabled === true ? 'activé' : 'pas encore' }} </span>
                 </span>

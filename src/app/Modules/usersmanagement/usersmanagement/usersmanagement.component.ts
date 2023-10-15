@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { UserService } from 'src/app/services/userservice/user.service';
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 
 
@@ -21,7 +21,8 @@ export class UsersmanagementComponent implements OnInit {
     phoneNumber: '',
     username: '',
     password: '',
-    role: 'Collaborateur', // Default role
+    roles:  []as string[],
+    // Default role
   };
   submitted = false;
 
@@ -34,18 +35,21 @@ export class UsersmanagementComponent implements OnInit {
 
   addUserForm: FormGroup;
 
-
+  
  
 
   constructor(private userService: UserService,private http: HttpClient, private formBuilder: FormBuilder,
     private modalService: BsModalService) {
+
+
+      
       this.addUserForm = this.formBuilder.group({
         name: ['', Validators.required],
-        email: ['', Validators.email],
-        phoneNumber: [''],
-        username: [''],
-        password: [''],
-        role: ['Collaborateur'], // You can set a default value here
+        email: ['',[Validators.required, Validators.email]],
+        phoneNumber: ['',[Validators.required, Validators.minLength(8)]],
+        username: ['', [Validators.required, noWhitespaceValidator()]],
+        password: ['',[Validators.required, Validators.minLength(8)]],
+        roles: [[] as string[]], // Initialize with 'default'
       });
      }
 
@@ -82,6 +86,7 @@ export class UsersmanagementComponent implements OnInit {
 
     
   }
+  
   get f() { return this.addUserForm.controls; }
   onAdd() {
     this.submitted = true;
@@ -110,3 +115,12 @@ export class UsersmanagementComponent implements OnInit {
   
 
 }
+function noWhitespaceValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    if (control.value && control.value.trim().length !== control.value.length) {
+      return { 'whitespace': true };
+    }
+    return null;
+  };
+}
+
