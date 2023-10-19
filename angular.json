@@ -39,8 +39,10 @@
               "node_modules/@swimlane/ngx-datatable/themes/bootstrap.css"
             ],
             "scripts": [
-              "node_modules/chart.js/dist/Chart.min.js"
-            ],
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js"
+            ]
           },
           "configurations": {
             "production": {
