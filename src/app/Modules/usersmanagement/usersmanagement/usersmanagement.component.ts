@@ -127,10 +127,18 @@ export class UsersmanagementComponent implements OnInit {
     
   }
 
-    private apiUrl = 'http://localhost:8020/api/user/archiveUser';
+    
     archiveUser(userId: number) {
-    // Vous pouvez passer l'ID de l'utilisateur à archiver en paramètre si nécessaire
-    return this.http.post(this.apiUrl, { userId });
+      this.http.put(`http://localhost:8020/api/user/archiveUser/${userId}`, {})
+      .subscribe(
+        () => {
+          console.log('Utilisateur archirvé avec succès.');
+        },
+        (error) => {
+          
+          console.error('Erreur lors de l\'archivage de l\'utilisateur :', error);
+        }
+      );
     }
 
 
