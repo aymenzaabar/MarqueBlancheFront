@@ -23,7 +23,7 @@ export class DragDropComponent implements AfterViewInit {
       activeClass: 'active',
       hoverClass: 'hover',
       drop: function (e, ui) {
-        var $el = $('<p class="drag"><a class="btn btn-default">' + ui.helper.text() + '</a></p>');
+        var $el = $('<div class="drag"> <div class="bg-gradient-orange border"><div class="card-body"><p class="card-title text-uppercase text-muted mb-0 text-white" ><a>' + ui.helper.text() + '</a></p></div></div></div>');
         $el.draggable({ 
           appendTo: 'body',
           helper: 'clone'

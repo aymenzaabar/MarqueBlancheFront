@@ -39,5 +39,34 @@
     right: 4px;
   }
 
+  .card {
+    /* Ajouter une ombre pour donner l'apparence d'une carte */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* Arrondir les coins de la carte */
+    border-radius: 8px;
+    /* Ajouter un fond de couleur */
+    background-color: #fff;
+    /* Ajouter une bordure */
+    border: 1px solid #ccc;
+    /* Ajuster la marge intérieure pour le contenu */
+    padding: 16px;
+    /* Définir une largeur fixe ou maximale si nécessaire */
+    width: 250px;
+    /* Centrer le contenu dans la carte */
+    margin: 0 auto;
+  }
+  
+  /* Ajouter des styles pour le titre, le texte et d'autres éléments de la carte si nécessaire */
+  .card h5 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #666;
+  }
+  
 
   

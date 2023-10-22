@@ -27,6 +27,7 @@
     "@fullcalendar/daygrid": "5.5.0",
     "@fullcalendar/interaction": "5.5.0",
     "@swimlane/ngx-datatable": "19.0.0",
+    "angular-websocket": "^2.0.1",
     "bootstrap": "4.5.2",
     "chart.js": "2.9.3",
     "clipboard": "2.0.6",
