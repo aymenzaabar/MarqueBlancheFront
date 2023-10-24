@@ -121,13 +121,13 @@ export class NavbarComponent implements OnInit {
     }
 
     logout()
-  {
+  {  this.router.navigate(['/login']);
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("accessToken");
     sessionStorage.removeItem("refreshToken");
     sessionStorage.removeItem("roles");
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("email");
-    this.router.navigate(['/login']);
+  
   }
 }

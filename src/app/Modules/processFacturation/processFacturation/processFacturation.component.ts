@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/services/WebsocketService/webSocketservice.service';
 import { FacturationserviceService } from 'src/app/services/facturationService/facturationservice.service';
 import swal from "sweetalert2";
+import { FileStreamComponent } from '../stream/file-stream/file-stream.component';
 
 @Component({
   selector: 'app-processFacturation',
@@ -11,7 +12,7 @@ import swal from "sweetalert2";
 export class ProcessFacturationComponent implements OnInit {
   currentStep : number = 0;
   date:string;
-
+  @ViewChild(FileStreamComponent) childComponent: FileStreamComponent;
   constructor( private facturationevrice: FacturationserviceService) { }
   logs: string[] = [];
 
@@ -21,7 +22,9 @@ export class ProcessFacturationComponent implements OnInit {
   
   steps = ['Étape 1', 'Étape 2', 'Étape 3'];
   
-
+  callChildFunction() {
+    this.childComponent.displayLinesWithDelay();
+  }
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {
       this.currentStep++;

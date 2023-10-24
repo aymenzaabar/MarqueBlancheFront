@@ -1,7 +1,6 @@
-<div>
-    <h1>Messages WebSocket</h1>
+<div *ngIf="x">
+    <h1 >Process logs</h1>
     <ul>
-      <li *ngFor="let message of messages">{{ message }}</li>
+      <li *ngFor="let line of displayedLines">{{ line }}</li>
     </ul>
   </div>
-  

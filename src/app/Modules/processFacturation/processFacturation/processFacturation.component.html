@@ -286,7 +286,7 @@
                 </div>
               </div>
               <div class="mt-3">
-              <button class=" btn btn-icon btn-info " (click)="exportFacture()">
+              <button class=" btn btn-icon btn-info " (click)="exportFacture()" (click)="callChildFunction()">
                 <span class=" btn-inner--icon">
                   <i class=" ni ni-button-play"> </i>
                 </span>
@@ -314,12 +314,12 @@
             </h5>
             <div class="mt-3">
            
-            <button class=" btn btn-icon btn-warning" (click)="treatCrSuspend()">
+            <button class=" btn btn-icon btn-warning" (click)="treatCrSuspend()" >
               <span class=" btn-inner--icon">
                 <i class=" ni ni-button-play"> </i>
               </span>
   
-              <span class=" btn-inner--text">Execute</span>
+              <span class=" btn-inner--text" >Execute</span>
             </button>
             
           </div>
@@ -338,6 +338,7 @@
         </div>
       </div>
     </div>
+    <app-file-stream></app-file-stream>
   </div>
 </div>
 <!---------------------------------------end  stepper-------------------------------------------------->
@@ -419,5 +420,5 @@
 
     
     
-    <app-file-stream></app-file-stream>
+    
     

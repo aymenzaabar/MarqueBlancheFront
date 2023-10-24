@@ -12,16 +12,26 @@ export class FileStreamComponent implements OnInit {
   constructor(private webSocketService: WebSocketServiceService) { }
 
   messages: string[] = [];
-
+  fileLines: string[] = [];
+  displayedLines: string[] = [];
 
   ngOnInit() {
-    this.webSocketService.getSocket().subscribe(
-      (message: string) => {
-        this.messages.push(message);
-      },
-      (error: any) => {
-        console.error('Erreur de connexion WebSocket : ', error);
-      }
-    );
+    this.webSocketService.getStreamedFile().subscribe(lines => {
+    
+      this.fileLines = lines.split('                  ');
+      console.log(this.fileLines)
+    //  this.displayLinesWithDelay();
+    });
+   
+    
+  }
+  x : any = false
+  displayLinesWithDelay() {
+    this. x =true
+    this.fileLines.forEach((line, index) => {
+      setTimeout(() => {
+        this.displayedLines.push(line);
+      }, 600 * index); // Adjust the delay (in milliseconds) as needed
+    });
   }
 }

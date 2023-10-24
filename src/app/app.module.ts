@@ -42,7 +42,7 @@ import { ModalModule } from "ngx-bootstrap/modal";
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
