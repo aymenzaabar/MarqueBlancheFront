@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Unit Tests
         run: npm run ci:test
-        
+
       - name: Clean Distribution Directory
         run: npm run ci:clean
         
