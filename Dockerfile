@@ -20,9 +20,6 @@ FROM node:20-alpine
 ## channge directory
 WORKDIR /app
 
-#COPY api code to app folder
-COPY /api/ /app/
-
 RUN npm ci
 
 ## From ‘builder’ copy published angular bundles in app/public
