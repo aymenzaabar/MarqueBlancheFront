@@ -1,6 +1,4 @@
-### STAGE 1: Build ###
-# We label our stage as ‘builder’
-FROM node:20-alpine as builder
+FROM node:16-alpine AS build
 
 WORKDIR /app
 COPY package*.json ./
