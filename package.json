@@ -11,7 +11,7 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "prod-build": "ng build --prod --aot --build-optimizer --optimization",
     "ci:clean": "rimraf ./dist",
-    "ci:test": "ng test --watch=false",
+    "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "ci:build": "ng build --prod"
   },
   "private": true,
