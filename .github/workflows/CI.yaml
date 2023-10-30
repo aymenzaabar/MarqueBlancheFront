@@ -55,5 +55,4 @@ jobs:
           export IMG_VERSION=${GITHUB_REF#refs/heads/}
           export TIME_IMG_VERSION=${IMG_VERSION}-`date +'%Y-%m-%d-%H%M%S'`
           echo "TIME_IMG_VERSION=${TIME_IMG_VERSION}" >> $GITHUB_ENV
-          echo  ${{ secrets.DOCKERHUB_USERNAME }} | docker login -u ${{ secrets.DOCKERHUB_PASSWORD }}  --password-stdin
           make push

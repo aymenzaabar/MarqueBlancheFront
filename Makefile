@@ -1,5 +1,5 @@
 NAMESPACE ?= aymenzaabar
-NAME := pfesecurity
+NAME := marqueblanchefront
 # Docker registry
 REGISTRY ?= index.docker.io
 # Docker image reference
