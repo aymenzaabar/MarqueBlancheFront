@@ -12,7 +12,7 @@
     "prod-build": "ng build --prod --aot --build-optimizer --optimization",
     "ci:clean": "rimraf ./dist",
     "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
-    "ci:build": "ng build --prod"
+    "ci:build": "ng build"
   },
   "private": true,
   "dependencies": {
