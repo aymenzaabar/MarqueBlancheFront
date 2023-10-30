@@ -9,7 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "prod-build": "ng build --prod --aot --build-optimizer --optimization"
+    "prod-build": "ng build --prod --aot --build-optimizer --optimization",
+    "ci:clean": "rimraf ./dist",
+    "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCustom --code-coverage",
+    "ci:build": "ng build --prod"
   },
   "private": true,
   "dependencies": {
